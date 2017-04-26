@@ -108,7 +108,7 @@ While the task itself isnt difficult, there are various scenarios that can make 
  Below os a high level architecture of what the data lake looks like
  
  
- ![DATA LAKE](https://github.com/samelamin/markdown-here/raw/master/src/common/images/icon48.png "DATA LAKE")
+ ![DATA LAKE](https://github.com/samelamin/samelamin.github.io/img/datalake.png "DATA LAKE")
 
  
 
