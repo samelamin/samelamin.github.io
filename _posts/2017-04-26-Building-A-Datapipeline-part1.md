@@ -98,9 +98,21 @@ While the task itself isnt difficult, there are various scenarios that can make 
  
  To tackle these issues what we do is the very first step in our pipeline is to clean the data and standerdize it so it is easier for us to manage. Forexample dealing with Gbs of data in RAW CSV and JSON is extremly difficult so we need to transform it to a format that is more managable like [PARQUET](https://parquet.apache.org/) or [AVRO](https://avro.apache.org/docs/1.2.0/). We currently use PARQUET
  
- ### Please bare in mind this is not actually production code, more aimed to give you an understanding of what we do.
+ ### Please bare in mind this snippits are to to give you an understanding. Please do not use it as production code.
  
- We ship our code with the schema versions we expect, so lets say we have data coming in CSV format and below is an example of the data expect
+ The biggest pain when dealing with enterprise data warehouses like Redshift is that computing and storage are tied together. 
+ 
+ So you would have issues when a data scientist is trying to run a monster query that is hogging all the resources while you're data analyst is also trying to do their regular queries, while you also have dashboards being used by you're business users AND your ETL process that are currently running throughout the day.
+ 
+ We wanted to split computing from storage to fix this exact problem. So we implemented a data lake in Amazon S3. 
+ Below os a high level architecture of what the data lake looks like
+ 
+ 
+ ![DATA LAKE](https://github.com/samelamin/markdown-here/raw/master/src/common/images/icon48.png "DATA LAKE")
+
+ 
+
+ We ship our code with the schema versions we expect. So lets say we have data coming in CSV format and below is an example of the data expect
  
  
   ``` csv
@@ -131,9 +143,10 @@ we add a resource to the code to say that we expect the V1 schema to be
  ``` 
 
 
-
 We then read in the csv while applying the schema like so: 
+
   ```scala
+  
    val actualInputVersion = 1
    val jobName = "SampleCSVRawExtract"
    val csvHeader = True
@@ -153,7 +166,15 @@ We then read in the csv while applying the schema like so:
   ``` 
   
   
+  We then save our processed file back down to our data lake
   
- So to summarise the very first step we do is extract the raw data, ensure the data is in the right format by applying a schema over it and then save it back to parquet. See code below
+  
+  
+  
+ So to summarise the very first step we do is extract the raw data, ensure the data is in the right format by applying a schema over it and then save it back to parquet.
+ 
+ 
+ 
+ That is it for part 1, if you have any feedback please do not hesitate to get in touch! 
  
  
