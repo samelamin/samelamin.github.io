@@ -196,8 +196,6 @@ val df = spark.read
 
 df.write.parquet(pathToWriteParquetTo)
 
-}
-
 ``` 
   
   
