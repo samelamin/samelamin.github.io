@@ -9,25 +9,29 @@ tags: [Apache Spark, End to End Pipeline, Testing, Data, Pipeline, S3]
 # Building A Scalable And Reliable Data Pipeline
 This post was inspired by a call I had with some of the Spark community user group on testing. If you havent watch it then you will be happy to know that it was recorded, you can watch it [here](https://www.youtube.com/watch?v=2q0uAldCQ8M), there are some amazing ideas and thoughts being shared.
 
-While there are a multitude of tutorials on how to build Spark applications, in my humble opinion there are not enough knowledge out there for the major gotchas and pains you feel when building them and we are in a unique industry where we learn from our failures. No other industry pushes their workers to fail. You do not see a pilot who keeps crashing on take off stay in work for long! While in software our motto for a long time has been to fail fast! 
+While there are a multitude of tutorials on how to build Spark applications, in my humble opinion there are not enough out there for the major gotchas and pains you feel when building them and we are in a unique industry where we learn from our failures. No other industry pushes their workers to fail. You do not see a pilot who keeps crashing on take off stay in work for long! While in software our motto for a long time has been to fail fast! 
 
-In addition to that a data pipeline is not just one spark application, its also workflow manager that handles scheduling, failures, retries and backfilling to name just a few.
+Additionally, a data pipeline is not just one or multiple spark application, its also workflow manager that handles scheduling, failures, retries and backfilling to name just a few.
 
 Finally a data pipeline is also a data serving layer, for example Redshift, Cassandra, Presto or Hive.
 
-This is why I am hoping to build a series of posts explaining how I am currently building data pipelines, the pains and frustrations of dealing with third party data providers and I hope the community will share their ideas and horror stories which will in turn give knowledge sharing and help us build better pipelines! 
+This is why I am hoping to build a series of posts explaining how I am currently building data pipelines, the series aims to constract a data pipeline from scratch all the way to a productionalised pipeline. Including a workflow manager and a dataserving layer.
+
+We will also explore the pains and frustrations of dealing with third party data providers and I hope the community will share their ideas and horror stories which will in turn give knowledge sharing and help us build better pipelines! 
 
 
 You can find the entire code base [here](https://github.com/samelamin/spark-wordcount-bdd)
 
-### Please bare in mind these snippets are to give you an understanding. Please do not use it as production code.
+#### Please bare in mind these snippets are to give you a better understanding. Please do not use it as production code.
 
 
 
 ## Tests Tests Tests! 
 As a strong advocate of test first development, I am starting the series on what inspired the orginal hangout call which is testing! 
 
-There are a variety of testing tools for Spark. While you can always just create an inmemory Spark Context. But I am a lazy engineer and laziness is a virtue for a developer! There are some frameworks to help you build them, some of them are listed below (If I missed any please give me a shout and I will add them)
+There are a variety of testing tools for Spark. While you can always just create an in-memory spark Context, I am a lazy developer and laziness is a virtue for a developer! 
+
+There are some frameworks to avoid writing boiler plate code, some of them are listed below (If I missed any please give me a shout and I will add them)
  
  Scala:
   - [Spark Test Base](https://github.com/holdenk/spark-testing-base)
@@ -119,7 +123,11 @@ While the task itself isnt difficult, there are various scenarios that can make 
 
  
 
- We ship our code with the schema versions we expect. So lets say we have data coming in JSON format and below is an example of the data expect
+ *I will be touching more on these as the series eveolve but for now we are going to focus only on the RAW ingestion.*
+
+ We ship our code with the schema versions we expect. This is to ensure the processed data will be in the shape we expect, and allow us to then do transformation queries to produce the data models our customers (data analysts,scientists and end users) expect. 
+ 
+ So lets say we have data coming in JSON format and below is an example of such data:
  
  
   ``` json
@@ -194,10 +202,10 @@ df.write.parquet(pathToWriteParquetTo)
   
   
   
-  We then save our processed file back down to our data lake
-  
-  And ofcourse we have to ensure that any changes to the code do not miss any data so below is a sample test to ensure the number of rows stay the same after processing
-  
+We then save our processed file back down to our data lake
+
+And ofcourse we have to ensure that any changes to the code do not miss any data so below is a sample test to ensure the number of rows stay the same after processing
+
   
 ```scala
 package com.bddsample
