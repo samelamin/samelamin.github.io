@@ -94,29 +94,26 @@ While the task itself isnt difficult, there are various scenarios that can make 
  - What happens if the data never arrives? What do you display to the end users? An empty table or tell them no data arrived? 
  
  
- - The data arrives but it is in the incorret format, either there are new columns/fields or missing fields
+ - The data arrives but it is in the incorrect format, either there are new columns/fields or missing fields
  
  
  - For CSVs, Sometimes the data comes with headers sometimes it does not
 
 
- - How do you deal with backfills, i.e. you're data provider says remember that data we sent you days or months ago, that's all rubbish data heres the correct one (For now.......)
- 
- 
- - How do you deal with backfills, i.e. you're data provider says remember that data we sent you days or months ago, that's all rubbish data heres the correct one (For now.......)
+ - How do you deal with backfills, i.e. your data provider says "remember that data we sent you days or months ago, that's all rubbish data heres the correct one" (For now.......)
  
  
  - The data arrives again but fields have incorrect values, you expected an int but got a string or the ever more annoying the assortment of timestamps you receive. 
  
  
- To tackle these issues what we do is the very first step in our pipeline is to clean the data and standerdize it so it is easier for us to manage. Forexample dealing with Gbs of data in RAW CSV and JSON is extremly difficult so we need to transform it to a format that is more managable like [PARQUET](https://parquet.apache.org/) or [AVRO](https://avro.apache.org/docs/1.2.0/). We currently use PARQUET
+ To tackle these issues what we do is the very first step in our pipeline is to clean the data and standardize it so it is easier for us to manage. For example dealing with Gbs of data in RAW CSV and JSON is extremly difficult so we need to transform it to a format that is more managable like [PARQUET](https://parquet.apache.org/) or [AVRO](https://avro.apache.org/docs/1.2.0/). We currently use PARQUET
  
  
- The biggest pain when dealing with enterprise data warehouses like Redshift is that computing and storage are tied together. 
+ The biggest pain when dealing with enterprise data warehouses like Redshift is that compute and storage are tied together. 
  
- So you would have issues when a data scientist is trying to run a monster query that is hogging all the resources while you're data analyst is also trying to do their regular queries, while you also have dashboards being used by you're business users AND your ETL process that are currently running throughout the day.
+ So you would have issues when a data scientist is trying to run a monster query that is hogging all the resources while your data analyst is also trying to do their regular queries, while you also have dashboards being used by you're business users AND your ETL process that are currently running throughout the day.
  
- We wanted to split computing from storage to fix this exact problem. So we implemented a data lake in Amazon S3. 
+ We wanted to split compute from storage to fix this exact problem. So we implemented a data lake in Amazon S3. 
  Below are 2 diagrams of our architecture at a high level 
  
  ![PLATFORM](https://raw.githubusercontent.com/samelamin/samelamin.github.io/master/img/platform.png "PLATFORM")
@@ -204,7 +201,7 @@ df.write.parquet(pathToWriteParquetTo)
   
 We then save our processed file back down to our data lake
 
-And ofcourse we have to ensure that any changes to the code do not miss any data so below is a sample test to ensure the number of rows stay the same after processing
+And of course we have to ensure that any changes to the code do not miss any data so below is a sample test to ensure the number of rows stay the same after processing
 
   
 ```scala
