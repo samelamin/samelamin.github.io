@@ -22,7 +22,7 @@ We will also explore the pains and frustrations of dealing with third party data
 
 You can find the entire code base [here](https://github.com/samelamin/spark-wordcount-bdd)
 
-*I have been lucky enough to build this pipeline with the amazing [Marius Feteanu](mailto:marius.feteanu@gmail.com)*
+*I have been lucky enough to build this pipeline with the amazing [Marius Feteanu](https://github.com/mariusfeteanu) who you can contact [here](mailto:marius.feteanu@gmail.com) *
 
 #### Please bare in mind these snippets are to give you a better understanding. Please do not use it as production code.
 
