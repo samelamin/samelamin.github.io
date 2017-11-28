@@ -6,7 +6,7 @@ category:
 tags: [Apache Spark, End to End Pipeline, Testing, Data, Pipeline, S3]
 ---
 
-# Building A Scalable And Reliable Data Pipeline
+# Building A Scalable And Reliable Data Pipeline. Part 1
 This post was inspired by a call I had with some of the Spark community user group on testing. If you havent watch it then you will be happy to know that it was recorded, you can watch it [here](https://www.youtube.com/watch?v=2q0uAldCQ8M), there are some amazing ideas and thoughts being shared.
 
 While there are a multitude of tutorials on how to build Spark applications, in my humble opinion there are not enough out there for the major gotchas and pains you feel when building them and we are in a unique industry where we learn from our failures. No other industry pushes their workers to fail. You do not see a pilot who keeps crashing on take off stay in work for long! While in software our motto for a long time has been to fail fast! 
@@ -106,7 +106,7 @@ While the task itself isnt difficult, there are various scenarios that can make 
  - The data arrives again but fields have incorrect values, you expected an int but got a string or the ever more annoying the assortment of timestamps you receive. 
  
  
- To tackle these issues what we do is the very first step in our pipeline is to clean the data and standardize it so it is easier for us to manage. For example dealing with Gbs of data in RAW CSV and JSON is extremly difficult so we need to transform it to a format that is more managable like [PARQUET](https://parquet.apache.org/) or [AVRO](https://avro.apache.org/docs/1.2.0/). We currently use PARQUET
+ To tackle these issues what we do is the very first step in our pipeline is to clean the data and standardize it so it is easier for us to manage. For example dealing with GBs of data in RAW CSV and JSON is extremly difficult so we need to transform it to a format that is more managable like [PARQUET](https://parquet.apache.org/) or [AVRO](https://avro.apache.org/docs/1.2.0/). We currently use PARQUET
  
  
  The biggest pain when dealing with enterprise data warehouses like Redshift is that compute and storage are tied together. 
