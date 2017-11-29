@@ -31,7 +31,7 @@ So to help clarify these things, imagine we have these two schemas RAW on S3
 The first is a table of customers, lets call this Dataframe 1 (DF1)
 
 
-  ```json
+```
 	{
 		"type": "struct",
 		"fields": [{
@@ -57,7 +57,7 @@ The first is a table of customers, lets call this Dataframe 1 (DF1)
  
  
  
-  ```json
+```
 	{
 		"type": "struct",
 		"fields": [{
@@ -163,10 +163,12 @@ The classes for "OrdersExtract" and appConfig are just the RAW classes and confi
 
 Essentially, all the class is doing is reading the RAW files from S3 and passing it to the transform class, so this logic should be as basic and simple as possible and leave the complicated business logic in the heavily testing transform class
 
- So to summarise the very second step we do is read in all the RAW parquet files we ingested and do whatever transformations we need to do then save it back as parquet to S3 partiioned by day
+I will discuss the overall code structure and the architecture in the next section in the hopes to clarify the difference between a Job and Transform Class. 
+
+So to summarise the very second step we do is read in all the RAW parquet files we ingested and do whatever transformations we need to do then save it back as parquet to S3 partiioned by day
  
- As an example we save the file back to 
+As an example we save the file back to 
  
  `output/dwh/{YEAR}/{MONTH}/{DAY}/{VERSION}/{JOB.parquet}`
  
- That is it for part 2, if you have any feedback please do not hesitate to get in touch! 
+That is it for part 2, if you have any feedback or ideas you want to share please do not hesitate to get in touch or comment below! 

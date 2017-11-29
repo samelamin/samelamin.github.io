@@ -129,7 +129,7 @@ While the task itself isnt difficult, there are various scenarios that can make 
  So lets say we have data coming in JSON format and below is an example of such data:
  
  
-  ``` json
+``` 
 {
 	"customers": [{
 			"id": 1,
@@ -149,7 +149,7 @@ While the task itself isnt difficult, there are various scenarios that can make 
 
 we add a resource to the code to say that we expect the V1 schema to be 
 
-  ```json
+```
 {
   "type" : "struct",
   "fields" : [ {
