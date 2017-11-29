@@ -171,4 +171,4 @@ As an example we save the file back to
  
  `output/dwh/{YEAR}/{MONTH}/{DAY}/{VERSION}/{JOB.parquet}`
  
-That is it for part 2, if you have any feedback or ideas you want to share please do not hesitate to get in touch or comment below! 
+That is it for part 2, if you have any feedback or ideas you want to share please do not hesitate to get in touch! 
