@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building A Data Pipeline Using Apache Spark. Part 2"
+title: "Building A Data Pipeline Using Apache Spark. Part 3"
 description: ""
 category:
 tags: [Apache Spark, End to End Pipeline, Testing, Data, Pipeline, S3]
@@ -13,7 +13,6 @@ While there are a multitude of tutorials on how to build Spark applications, in 
 
 ## Why the long break?
 The reason being in the past 10 months so much has happened to me on a personal and professional front. For starters I moved jobs, moved house and most importantly I welcomed the birth of my first child! It has been a hectic few months and I only am no getting back to contributing to the community
-
 
 
 ## Where we left off?
