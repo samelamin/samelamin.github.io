@@ -12,7 +12,7 @@ This is the long overdue third chapter on building a data pipeline using Apache 
 While there are a multitude of tutorials on how to build Spark applications, in my humble opinion there are not enough out there for the major gotchas and pains you feel while building them!
 
 ## Why the long break?
-The reason being in the past 10 months so much has happened to me on a personal and professional front. For starters I moved jobs, moved house and most importantly I welcomed the birth of my first child! It has been a hectic few months and I only am no getting back to contributing to the community
+The reason being in the past 10 months so much has happened to me on a personal and professional front. For starters I moved jobs, moved house and most importantly I welcomed the birth of my first child! It has been a hectic few months and I only am now getting back to contributing to the community
 
 
 ## Where we left off?
