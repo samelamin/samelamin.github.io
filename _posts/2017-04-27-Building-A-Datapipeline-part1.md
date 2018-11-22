@@ -111,7 +111,7 @@ While the task itself isnt difficult, there are various scenarios that can make 
 
  The biggest pain when dealing with enterprise data warehouses like Redshift is that compute and storage are tied together.
 
- So you would have issues when a data scientist is trying to run a monster query that is hogging all the resources while your data analyst is also trying to do their regular queries, while you also have dashboards being used by you're business users AND your ETL process that are currently running throughout the day.
+ So you would have issues when a data scientist is trying to run a monster query that is hogging all the resources while your data analyst is also trying to do their regular queries, while you also have dashboards being used by your business users AND your ETL process that are currently running throughout the day.
 
  We wanted to split compute from storage to fix this exact problem. So we implemented a data lake in Amazon S3.
  Below are 2 diagrams of our architecture at a high level
