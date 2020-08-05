@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Airflow AD Integration With Okta"
+title: "Airflow AD Integration With OKTA"
 description: ""
 category:
 tags: [AD integration, OKTA, AIRFLOW]
@@ -151,7 +151,7 @@ And you guessed it, I put this file in the Airflow directory. Also as part of my
 Please note my packages were installed on python3.7 so you might want to look into your environment and change accordingly 
 
 ### Final Gotchas
-Before you enable login, you might need an admin user already set up on airflow, but I am yet to validate if this is needed or not so that is why I did not include it in this tutorial. But feel free to drop a comment or even better send a PR if that is the case or if you want to add any helpful comment for anyone attempting this
+Before you enable login, you might need an admin user already set up on airflow, but I am yet to validate if this is needed or not so that is why I did not include it in this tutorial. But feel free to drop me a message or even better send a PR as help for anyone else attempting to do this.
 
 ### Thank you! 
 Finally thank you, I am not sure if people benefit from my data pipeline series but if you have, please drop me a note and ill add to it. Otherwise thank you for your time and as always feedback is always welcome
